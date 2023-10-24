@@ -31,6 +31,17 @@ public class CalculatorTest {
 
     @Test
     public void factorialOfFirstSixNumbers() {
-        assertEquals(Calculator.getNFactorials(6), new ArrayList<BigInteger>(Arrays.asList(BigInteger.ONE, BigInteger.ONE )));
+        ArrayList<BigInteger> list = new ArrayList<BigInteger>(
+                Arrays.asList(
+                        BigInteger.ONE,
+                        BigInteger.ONE,
+                        BigInteger.valueOf(2),
+                        BigInteger.valueOf(6),
+                        BigInteger.valueOf(24),
+                        BigInteger.valueOf(120)
+                )
+        );
+
+        assertEquals(Calculator.getNFactorials(6), list);
     }
 }

@@ -5,6 +5,11 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Calculator.getNFactorials(12));
+        try {
+            System.out.println(Calculator.getNFactorials(12));
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -10,48 +10,35 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 public class CalculatorTest {
-    @Test
-    public void factorialOfZeroIsOne() {
-        try {
-            assertEquals(Calculator.calculateFactorial(0), BigInteger.ONE);
-        }
-        catch (Exception e) {
-            fail("Exception thrown");
-            System.out.println(e.getMessage());
-        }
+
+    @Test (expected = Exception.class)
+    public void FactorialOfNegativeNumberCannotBeCalculated() throws Exception {
+        Calculator.calculateFactorial(-6);
+    }
+
+    @Test (expected = Exception.class)
+    public void NumberOfFactorialsIsNegativeWrong() throws Exception {
+        Calculator.getNFactorials(-6);
     }
 
     @Test
-    public void factorialOfOneIsOne() {
-        try {
-            assertEquals(Calculator.calculateFactorial(1), BigInteger.ONE);
-        }
-        catch (Exception e) {
-            fail("Exception thrown");
-            System.out.println(e.getMessage());
-        }
+    public void factorialOfZeroIsOne() throws Exception {
+        assertEquals(Calculator.calculateFactorial(0), BigInteger.ONE);
     }
 
     @Test
-    public void factorialOfFiveIsOne() {
-        try {
-            assertEquals(Calculator.calculateFactorial(5), BigInteger.valueOf(120));
-        }
-        catch (Exception e) {
-            fail("Exception thrown");
-            System.out.println(e.getMessage());
-        }
+    public void factorialOfOneIsOne() throws Exception {
+        assertEquals(Calculator.calculateFactorial(1), BigInteger.ONE);
     }
 
     @Test
-    public void factorialOfSix() {
-        try {
-            assertEquals(Calculator.calculateFactorial(6), BigInteger.valueOf(720));
-        }
-        catch (Exception e) {
-            fail("Exception thrown");
-            System.out.println(e.getMessage());
-        }
+    public void factorialOfFiveIsOne() throws Exception {
+        assertEquals(Calculator.calculateFactorial(5), BigInteger.valueOf(120));
+    }
+
+    @Test
+    public void factorialOfSix() throws Exception {
+        assertEquals(Calculator.calculateFactorial(6), BigInteger.valueOf(720));
     }
 
     @Test
@@ -64,17 +51,11 @@ public class CalculatorTest {
                 )
         );
 
-        try {
-            assertEquals(Calculator.getNFactorials(3), list);
-        }
-        catch (Exception e) {
-            fail("Exception thrown");
-            System.out.println(e.getMessage());
-        }
+        assertEquals(Calculator.getNFactorials(3), list);
     }
 
     @Test
-    public void factorialOfFirstSixNumbers() {
+    public void factorialOfFirstSixNumbers() throws Exception {
         ArrayList<BigInteger> list = new ArrayList<BigInteger>(
                 Arrays.asList(
                         BigInteger.ONE,
@@ -86,12 +67,6 @@ public class CalculatorTest {
                 )
         );
 
-        try {
-            assertEquals(Calculator.getNFactorials(6), list);
-        }
-        catch (Exception e) {
-            fail("Exception thrown");
-            System.out.println(e.getMessage());
-        }
+        assertEquals(Calculator.getNFactorials(6), list);
     }
 }

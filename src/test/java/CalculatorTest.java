@@ -4,6 +4,7 @@ import org.junit.Test;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -41,15 +42,17 @@ public class CalculatorTest {
 
     @Test
     public void factorialOfFirstThreeNumbers() throws Exception {
-        ArrayList<BigInteger> list = new ArrayList<BigInteger>(
+        ArrayList<BigInteger> expected = new ArrayList<BigInteger>(
                 Arrays.asList(
                         BigInteger.ONE,
                         BigInteger.ONE,
                         BigInteger.valueOf(2)
                 )
         );
+        List<BigInteger> result = Calculator.getNFactorials(3);
 
-        assertEquals(Calculator.getNFactorials(3), list);
+        assertEquals(3, result.size());
+        assertEquals(result, expected);
     }
 
     @Test
@@ -64,7 +67,9 @@ public class CalculatorTest {
                         BigInteger.valueOf(120)
                 )
         );
+        List<BigInteger> result = Calculator.getNFactorials(6);
 
-        assertEquals(Calculator.getNFactorials(6), list);
+        assertEquals(6, result.size());
+        assertEquals(list, Calculator.getNFactorials(6));
     }
 }

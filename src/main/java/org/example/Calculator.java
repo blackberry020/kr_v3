@@ -11,9 +11,10 @@ public class Calculator {
         }
 
         ArrayList<BigInteger> factorials = new ArrayList<BigInteger>(n);
+        factorials.add(BigInteger.ONE);
 
-        for (int i = 0; i < n; i++) {
-            factorials.add(calculateFactorial(i));
+        for (int i = 1; i < n; i++) {
+            factorials.add(factorials.get(i - 1).multiply(BigInteger.valueOf(i)));
         }
 
         return factorials;
